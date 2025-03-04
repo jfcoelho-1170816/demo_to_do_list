@@ -2,6 +2,8 @@
 
 Aplicação web para gestão de tarefas, onde os utilizadores se podem registar, autenticar e adicionar, visualizar, completar e eliminar tarefas. Desenvolvida com **React, Express.js, JWT para realizar a autenticação dos users, bcrypt.js para a encriptação das senhas dos users, Dotenv para variáveis de ambiente(Backend) e MongoDB + Mongoose (Backend) e React+Vite, Axios e Tailwind CSS(Frontend)**.
 
+## Clonar repositório
+git clone https://github.com/jfcoelho-1170816/demo_to_do_list.git
 
 ## Instalação e Configuração do Backend
 
