@@ -11,20 +11,20 @@ router.post('/register', async (req, res) => {
       const { username, password } = req.body;
 
       if (!username || !password) {
-          return res.status(400).json({ message: 'Nome de usuário e senha são obrigatórios' });
+          return res.status(400).json({ message: 'Nome de user e senha são obrigatórios' });
       }
 
       const existingUser = await User.findOne({ username });
       if (existingUser) {
-          return res.status(400).json({ message: 'Usuário já existe' });
+          return res.status(400).json({ message: 'User já existe' });
       }
 
       const hashedPassword = await bcrypt.hash(password, 10);
       const user = await User.create({ username, password: hashedPassword });
 
-      res.status(201).json({ message: 'Usuário registrado com sucesso!', user });
+      res.status(201).json({ message: 'User registado com sucesso!', user });
   } catch (error) {
-      res.status(500).json({ message: 'Erro ao registrar usuário', error });
+      res.status(500).json({ message: 'Erro ao registar user', error });
   }
 });
 
@@ -32,13 +32,12 @@ router.post('/login', async (req, res) => {
   try {
       const { username, password } = req.body;
 
-      // Verifica se o usuário existe no banco de dados
       const user = await User.findOne({ username });
       if (!user) {
-          return res.status(400).json({ message: 'Usuário não encontrado' });
+          return res.status(400).json({ message: 'User não encontrado' });
       }
 
-      // Verifica se a senha está correta
+      
       const isPasswordValid = await bcrypt.compare(password, user.password);
       if (!isPasswordValid) {
           return res.status(400).json({ message: 'Senha incorreta' });
@@ -56,9 +55,9 @@ router.post('/login', async (req, res) => {
 
 router.get('/get', authenticate, async (req, res) => {
   try {
-      const user = await User.findById(req.user.userId).select('-password'); // Remove a senha da resposta
+      const user = await User.findById(req.user.userId).select('-password'); 
       if (!user) {
-          return res.status(404).json({ message: 'Usuário não encontrado' });
+          return res.status(404).json({ message: 'User não encontrado' });
       }
       res.json(user);
   } catch (error) {
