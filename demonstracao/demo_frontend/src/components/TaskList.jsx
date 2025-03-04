@@ -44,16 +44,16 @@ function TaskList({ user, logout }) {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-center mb-4">Lista de Tarefas</h1>
+      <h1 className="text-2xl font-bold font-serif text-center mb-4">Lista de Tarefas</h1>
       
     <div className="bg-white-200 p-3 rounded mb-4 text-right text-xs font-semibold">
           User ativo: {user.username}
     </div>
       
-      <button className="bg-red-500 text-blue w-full p-2 rounded mb-4" onClick={logout}>Logout</button>
+      <button className="bg-grey-100 font-serif text-blue w-full p-2 rounded mb-4" onClick={logout}>Logout</button>
       <TaskInput setTasks={setTasks} />
       <div className="flex mb-5">
-        <button id='ListBtn' className="bg-blue-600 text-blue p-3 border rounded" onClick={toggleTasks}>
+        <button id='ListBtn' className="bg-grey-100 font-serif text-blue p-3 border rounded" onClick={toggleTasks}>
           {showTasks ? 'Esconder Lista' : 'Mostrar Lista'}
         </button>
       </div>

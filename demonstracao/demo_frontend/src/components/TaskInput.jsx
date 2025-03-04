@@ -23,8 +23,8 @@ function TaskInput({ setTasks }) {
 
   return (
     <div className="flex mb-4">
-      <input className="flex-grow p-2 border rounded-l" type="text" value={newTask} onChange={(e) => setNewTask(e.target.value)} placeholder="Nova tarefa" />
-      <button className="bg-blue-500 text-blue p-2 rounded-r" onClick={addTask}>Adicionar</button>
+      <input className="flex-grow font-mono p-2 border rounded-l" type="text" value={newTask} onChange={(e) => setNewTask(e.target.value)} placeholder="Nova tarefa" />
+      <button className="bg-grey-100 font-serif text-blue p-2 rounded-r" onClick={addTask}>Adicionar</button>
     </div>
   );
 }
